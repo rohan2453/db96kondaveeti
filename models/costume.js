@@ -1,8 +1,15 @@
 const mongoose = require("mongoose") 
 const costumeSchema = mongoose.Schema({ 
  costume_type: String, 
- size: String, 
- cost: Number 
+ size: {
+    type: String,
+    maxlength: 10
+},  
+ cost: {
+    type: Number,
+    min: 20,
+   max: 500
+} 
 }) 
  
 module.exports = mongoose.model("Costume", costumeSchema)
